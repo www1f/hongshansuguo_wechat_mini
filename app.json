@@ -50,7 +50,6 @@
       ]
     },
     "usingComponents": {
-      "floating-ai-button": "/components/floating-ai-button/index",
       "page-transition": "/components/page-transition/page-transition"
     },
     "style": "v2",

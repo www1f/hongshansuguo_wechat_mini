@@ -17,8 +17,7 @@
   </scroll-view>
 </view> 
 
-<!-- 添加AI悬浮球 -->
-<floating-ai-button position="right-bottom"></floating-ai-button> 
+
 
 <!-- 页面过渡加载动画 -->
 <page-transition id="page-transition"></page-transition> 

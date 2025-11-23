@@ -1,7 +1,6 @@
 {
   "usingComponents": {
-    "navbar": "/components/navbar/navbar",
-    "floating-ai-button": "/components/floating-ai-button/index"
+    "navbar": "/components/navbar/navbar"
   },
   "navigationStyle": "custom"
 } 
