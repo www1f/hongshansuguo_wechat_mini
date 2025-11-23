@@ -18,13 +18,8 @@
     
     <view class="cultural-info">
       <view class="cultural-name">{{cultural.name}}</view>
-      <view class="cultural-desc">{{cultural.description}}</view>
+      <rich-text class="cultural-desc" nodes="{{cultural.description}}"></rich-text>
     </view>
-    
-    <!-- <view class="cultural-detail">
-      <view class="detail-title">文物故事</view>
-      <text class="detail-content" decode="{{true}}">{{cultural.detailContent}}</text>
-    </view> -->
     
     <!-- 底部安全区域，确保内容不会被遮挡 -->
     <view class="safe-area-bottom"></view>
