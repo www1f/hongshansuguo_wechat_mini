@@ -1,0 +1,13 @@
+<!--pages/map/map.wxml-->
+<view class="page">
+  <navbar title="站点地图" showBack="{{true}}" backUrl="/pages/index/index"></navbar>
+  
+  <view class="content">
+    <view class="map-module" style="position: relative; left: 0rpx; top: 0rpx; height: 891rpx; display: block; box-sizing: border-box">
+      <image class="map-image" src="/images/map.jpg" mode="aspectFit" style="height: 527rpx; display: block; box-sizing: border-box; width: 660rpx; position: relative; left: 7rpx; top: 163rpx"></image>
+    </view>
+  </view>
+
+  <!-- 添加AI悬浮球 -->
+  <floating-ai-button position="right-bottom"></floating-ai-button>
+</view> 

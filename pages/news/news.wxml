@@ -1,0 +1,52 @@
+<!--pages/news/news.wxml-->
+<navbar title="新闻资讯" back="{{true}}" customStyle="background-color: #B3261E;"></navbar>
+
+<view class="container">
+  <!-- 新闻列表 -->
+  <scroll-view scroll-y="true" class="news-scroll">
+    <view class="news-list">
+      <view 
+        class="news-item" 
+        wx:for="{{newsList}}" 
+        wx:key="id"
+        bindtap="viewNewsDetail"
+        data-id="{{item.id}}"
+      >
+        <view class="news-image" style="background-color: {{item.bgColor}};">
+          <image src="{{item.image}}" style="width: 100%;height: 100%;"/> 
+        </view>
+        <view class="news-content">
+          <view class="news-title">{{item.title}}</view>
+          <view class="news-intro">{{item.intro}}</view>
+          <view class="news-info">
+            <view class="news-source">{{item.source}}</view>
+            <view class="news-date">{{item.date}}</view>
+            <view class="news-views">
+              <text class="view-icon">👁️</text>
+              {{item.views}}
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+    
+    <!-- 加载提示 -->
+    <view class="loading" wx:if="{{loading}}">
+      <view class="loading-icon"></view>
+      <text>加载中...</text>
+    </view>
+    
+    <!-- 底部提示 -->
+    <view class="bottom-tip" wx:if="{{isBottom}}">
+      <view class="line"></view>
+      <view class="text">已经到底了</view>
+      <view class="line"></view>
+    </view>
+  </scroll-view>
+</view>
+
+<!-- 添加AI悬浮球 -->
+<floating-ai-button position="right-bottom"></floating-ai-button>
+
+<!-- 页面过渡加载动画 -->
+<page-transition id="page-transition"></page-transition>

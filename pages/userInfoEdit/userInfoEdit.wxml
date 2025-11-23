@@ -1,0 +1,66 @@
+<navbar title="编辑资料" back="{{true}}" customStyle="background: linear-gradient(90deg, #B3261E 0%, #8C1C23 100%);"></navbar>
+
+<view class="container" style="width: 674rpx; height: 1706rpx; display: block; box-sizing: border-box; position: relative; left: 39rpx; top: 102rpx">
+  <view class="list-card"style="top: 100rpx">
+    <view class="list-item" bindtap="onChangeAvatar">
+      <text class="label">头像</text>
+      <view class="value">
+        <image class="avatar-small" src="{{avatarUrl || '/images/default-avatar.png'}}"></image>
+      </view>
+    </view>
+
+    <view class="list-item" data-field="nickName" bindtap="onEditField">
+      <text class="label">昵称</text>
+      <text class="value">{{nickName || '未填写'}}</text>
+    </view>
+
+    <view class="list-item">
+      <text class="label">性别</text>
+      <picker class="picker-holder" mode="selector" range="{{genderOptions}}" value="{{genderIndex}}" bindchange="onGenderChange">
+        <view class="value picker-value">{{genderOptions[genderIndex] || '请选择'}}</view>
+      </picker>
+    </view>
+
+    <view class="list-item" data-field="hometown" bindtap="onEditField">
+      <text class="label">籍贯</text>
+      <text class="value">{{hometown || '未填写'}}</text>
+    </view>
+
+    <view class="list-item">
+      <text class="label">生日</text>
+      <picker class="picker-holder" mode="date" value="{{birthday || ''}}" bindchange="onBirthdayChange">
+        <view class="value picker-value">{{birthday || '请选择'}}</view>
+      </picker>
+    </view>
+
+    <view class="list-item">
+      <text class="label">星座</text>
+      <text class="value">{{zodiac || '—'}}</text>
+    </view>
+
+    <view class="list-item" data-field="phoneNumber" bindtap="onEditField">
+      <text class="label">手机号</text>
+      <text class="value">{{phoneNumber || '未填写'}}</text>
+    </view>
+
+    <view class="list-item" data-field="email" bindtap="onEditField">
+      <text class="label">电子邮箱</text>
+      <text class="value">{{email || '未填写'}}</text>
+    </view>
+  </view>
+
+  <view class="btn-primary" bindtap="onSave" style="width: 399rpx; height: 77rpx; display: block; box-sizing: border-box; position: relative; left: 119rpx; top: 32rpx">保存</view>
+
+  <!-- 通用输入弹层 -->
+  <view class="editor-mask" wx:if="{{showEditor}}" bindtap="onEditorCancel">
+    <view class="editor-panel" catchtap="noop">
+      <input class="editor-input" type="{{editorType}}" value="{{tempValue}}" placeholder="{{editorPlaceholder}}" bindinput="onTempInput" focus="true"/>
+      <view class="editor-actions">
+        <view class="btn-cancel" bindtap="onEditorCancel">取消</view>
+        <view class="btn-confirm" bindtap="onEditorSave">确定</view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<page-transition id="page-transition"></page-transition>

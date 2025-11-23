@@ -1,0 +1,167 @@
+/* 滚动页面容器 */
+.page-scroll {
+  width: 100%;
+  overflow: hidden;
+  background-color: #f8f3e9;
+}
+
+/* 安全区域，确保内容不被底部遮挡 */
+.safe-area-bottom {
+  height: 40rpx;
+  width: 100%;
+  font-size: 22rpx;
+  color: #cccccc;
+  text-align: center;
+  padding: 30rpx 0;
+  line-height: 1;
+}
+
+.container {
+  background-color: #f8f3e9;
+  padding-bottom: 40rpx;
+  box-sizing: border-box;
+}
+
+.cultural-image-container {
+  width: 100%;
+  height: 500rpx;
+  position: relative;
+  background-color: #f0f0f0; /* 默认背景色，图片加载失败时显示 */
+}
+
+.cultural-image {
+  width: 100%;
+  height: 100%;
+}
+
+.collect-btn {
+  position: absolute;
+  right: 30rpx;
+  bottom: -30rpx;
+  width: 60rpx;
+  height: 60rpx;
+  background-color: #fff;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4rpx 8rpx rgba(0, 0, 0, 0.1);
+  z-index: 2;
+}
+
+.collect-icon {
+  font-size: 36rpx;
+  color: #cccccc;
+}
+
+.collect-icon.collected {
+  color: #ff4d4f;
+}
+
+.collect-btn image {
+  width: 36rpx;
+  height: 36rpx;
+}
+
+.cultural-info {
+  background-color: #fff;
+  padding: 30rpx;
+  margin: 20rpx;
+  border-radius: 12rpx;
+  box-shadow: 0 4rpx 8rpx rgba(0, 0, 0, 0.05);
+}
+
+.cultural-name {
+  font-size: 36rpx;
+  font-weight: bold;
+  color: #8c1c23;
+  margin-bottom: 20rpx;
+}
+
+.cultural-desc {
+  font-size: 28rpx;
+  color: #333;
+  line-height: 1.6;
+  margin-bottom: 30rpx;
+}
+
+.info-table {
+  border-top: 1rpx solid #f0f0f0;
+  padding-top: 20rpx;
+}
+
+.info-row {
+  display: flex;
+  padding: 16rpx 0;
+  font-size: 26rpx;
+  color: #666;
+}
+
+.info-label {
+  width: 140rpx;
+  color: #999;
+}
+
+.info-value {
+  flex: 1;
+}
+
+.cultural-detail {
+  background-color: #fff;
+  padding: 30rpx;
+  margin: 0 20rpx 30rpx;
+  border-radius: 12rpx;
+  box-shadow: 0 4rpx 8rpx rgba(0, 0, 0, 0.05);
+}
+
+.detail-title {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #8c1c23;
+  margin-bottom: 20rpx;
+  padding-bottom: 16rpx;
+  border-bottom: 1rpx solid #f0f0f0;
+}
+
+.detail-content {
+  font-size: 28rpx;
+  color: #333;
+  line-height: 1.8;
+  white-space: pre-wrap;
+  text-align: justify;
+  display: block;
+}
+
+.action-btns {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 20rpx;
+  margin-bottom: 30rpx;
+}
+
+.share-btn, .appointment-btn {
+  width: 48%;
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: center;
+  border-radius: 40rpx;
+  font-size: 28rpx;
+}
+
+.share-btn {
+  background-color: #fff;
+  color: #8c1c23;
+  border: 1rpx solid #8c1c23;
+}
+
+.appointment-btn {
+  background-color: #8c1c23;
+  color: #fff;
+}
+
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #999;
+} 

@@ -1,0 +1,16 @@
+<!--pages/activity/activity.wxml-->
+<view class="container">
+  <navbar title="活动" back="{{true}}" customStyle="background-color: #8c1c23;"></navbar>
+  
+  <!-- 暂无活动提示 -->
+  <view class="no-activity">
+    <view class="no-activity-text">最近暂无活动~</view>
+    <view class="no-activity-desc">敬请期待后续活动~</view>
+  </view>
+</view>
+
+<!-- 添加AI悬浮球 -->
+<floating-ai-button position="right-bottom"></floating-ai-button>
+
+<!-- 页面过渡加载动画 -->
+<page-transition id="page-transition"></page-transition>

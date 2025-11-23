@@ -1,0 +1,122 @@
+<!--index.wxml-->
+<view class="container">
+  <!-- 自定义导航栏组件 -->
+  <navbar title="首页" back="{{false}}" customStyle="background: linear-gradient(90deg, #B3261E 0%, #8C1C23 100%);"></navbar>
+
+  <!-- 搜索栏（占位跳转/可扩展） -->
+
+  <!-- 轮播图 -->
+  <swiper class="swiper" 
+    indicator-dots="{{true}}" 
+    indicator-color="#ffffff66"
+    indicator-active-color="#ffffff"
+    autoplay="{{true}}" 
+    interval="{{3000}}" 
+    duration="{{500}}" 
+    circular="{{true}}"
+    current="{{swiperCurrent}}" 
+    bindchange="swiperChange">
+    <block wx:for="{{swiperList}}" wx:key="id">
+      <swiper-item>
+        <view class="swiper-item">
+          <image class="banner-image" src="{{item.path}}" mode="aspectFill"/>
+          <view class="banner-mask"></view>
+          <view class="banner-title">{{item.title}}</view>
+        </view>
+      </swiper-item>
+    </block>
+  </swiper>
+
+  <!-- 功能导航 -->
+  <block wx:if="{{navIcons.length >= 3}}">
+    <view class="function-nav" style="width: -webkit-fill-available; display: flex; box-sizing: border-box">
+      <view class="nav-item" bindtap="navigateToNews" hover-class="button-hover">
+        <view class="nav-icon">
+          <image src="{{navIcons[0].path}}" class="nav-icon-img" mode="aspectFit" lazy-load="true"/>
+        </view>
+        <view class="nav-text">新闻动态</view>
+      </view>
+      <view class="nav-item" bindtap="navigateToActivity" hover-class="button-hover">
+        <view class="nav-icon">
+          <image src="{{navIcons[1].path}}" class="nav-icon-img" mode="aspectFit" lazy-load="true"/>
+        </view>
+        <view class="nav-text">活动信息</view>
+      </view>
+      <view class="nav-item" bindtap="navigateToMap" hover-class="button-hover">
+        <view class="nav-icon">
+          <image src="{{navIcons[2].path}}" class="nav-icon-img" mode="aspectFit" lazy-load="true"/>
+        </view>
+        <view class="nav-text">景点地图</view>
+      </view>
+    </view>
+  </block>
+  <view class="function-nav" wx:else>
+    <view class="nav-item">
+      <view class="nav-icon shimmer"></view>
+      <view class="skeleton-line short shimmer"></view>
+    </view>
+    <view class="nav-item">
+      <view class="nav-icon shimmer"></view>
+      <view class="skeleton-line short shimmer"></view>
+    </view>
+    <view class="nav-item">
+      <view class="nav-icon shimmer"></view>
+      <view class="skeleton-line short shimmer"></view>
+    </view>
+  </view>
+
+  <!-- 红色故事 -->
+  <view class="stories-section">
+    <view class="section-title">泽雅特色故事会</view>
+
+    <!-- 骨架屏（加载中） -->
+    <block wx:if="{{loading}}">
+      <view class="story-item skeleton">
+        <view class="story-image shimmer"></view>
+        <view class="story-content">
+          <view class="skeleton-line short shimmer"></view>
+          <view class="skeleton-line shimmer"></view>
+          <view class="skeleton-line shimmer"></view>
+        </view>
+      </view>
+      <view class="story-item skeleton">
+        <view class="story-image shimmer"></view>
+        <view class="story-content">
+          <view class="skeleton-line short shimmer"></view>
+          <view class="skeleton-line shimmer"></view>
+          <view class="skeleton-line shimmer"></view>
+        </view>
+      </view>
+    </block>
+
+    <!-- 空状态 -->
+    <view class="empty-state" wx:elif="{{!stories || stories.length == 0}}">
+      <view class="empty-illus"></view>
+      <view class="empty-title">暂时没有故事</view>
+      <view class="empty-sub">去看看更多精选内容吧</view>
+      <view class="empty-action" bindtap="navigateToRedStories" hover-class="button-hover">去故事列表</view>
+    </view>
+
+    <!-- 内容列表 -->
+    <view class="stories-list" wx:else>
+      <view class="story-item" wx:for="{{stories}}" wx:key="_id" bindtap="showStoryDetail" data-id="{{item._id}}" hover-class="button-hover">
+        <view class="story-image">
+          <image src="{{item.image}}" mode="aspectFill" lazy-load="true"></image>
+        </view>
+        <view class="story-content">
+          <view class="story-title">{{item.title}}</view>
+          <view class="story-desc">{{item.content}}</view>
+        </view>
+      </view>
+    </view>
+    <view class="more-stories" bindtap="navigateToRedStories" hover-class="button-hover">
+      <text>查看更多故事</text>
+    </view>
+  </view>
+  
+  <!-- 添加AI悬浮球 -->
+  <floating-ai-button position="right-bottom"></floating-ai-button>
+
+  <!-- 页面过渡加载动画 -->
+  <page-transition id="page-transition"></page-transition>
+</view>

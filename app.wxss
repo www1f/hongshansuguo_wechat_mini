@@ -1,0 +1,97 @@
+/**
+ * 全局样式文件
+ * 包含小程序全局样式定义
+ */
+
+/* 页面基础样式 */
+page {
+  height: 100%;
+  background-color: #F8F3E9;
+  font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica,
+    'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', Arial, sans-serif;
+}
+
+/* 容器样式 */
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* 导航栏样式 */
+.nav-bar {
+  width: 100%;
+  height: 90px;
+  background-color: #c83e3e;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding-top: 40px;
+  color: #fff;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+}
+
+/* 导航栏返回按钮 */
+.nav-bar .back {
+  margin-left: 15px;
+  width: 20px;
+  height: 20px;
+}
+
+/* 导航栏标题 */
+.nav-bar .title {
+  flex: 1;
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+/* 页面容器 */
+.page-container {
+  margin-top: 90px;
+  width: 100%;
+  flex: 1;
+  overflow: hidden;
+}
+
+/* 主题色相关样式 */
+.btn-primary,
+.gold-bg {
+  background-color: #c83e3e;
+}
+
+/* 主要按钮样式 */
+.btn-primary {
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+}
+
+/* 红色文字 */
+.red-text,
+.more-btn,
+.module-title {
+  color: #c83e3e;
+}
+
+/* 更多按钮 */
+.more-btn {
+  font-size: 14px;
+}
+
+/* 模块标题 */
+.module-title {
+  font-size: 18px;
+  font-weight: bold;
+  margin: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+} 

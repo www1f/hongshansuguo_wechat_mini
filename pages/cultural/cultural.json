@@ -1,0 +1,10 @@
+{
+  "usingComponents": {
+    "navbar": "/components/navbar/navbar"
+  },
+  "navigationStyle": "custom",
+  "navigationBarTitleText": "文物展示",
+  "backgroundColor": "#f8f3e9",
+  "backgroundTextStyle": "light",
+  "enablePullDownRefresh": true
+} 

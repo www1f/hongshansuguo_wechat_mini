@@ -1,0 +1,6 @@
+<!-- components/page-transition/page-transition.wxml -->
+<view class="page-transition-container {{show ? 'show' : ''}}" wx:if="{{show}}">
+  <view class="loading-spinner">
+    <view class="spinner-circle"></view>
+  </view>
+</view> 

@@ -1,0 +1,24 @@
+<navbar title="红色记忆故事会" back="{{true}}" customStyle="background-color: #8c1c23;"></navbar>
+
+<view class="container">
+  <scroll-view scroll-y="true" class="stories-scroll" enable-flex="true" enhanced="true" show-scrollbar="false">
+    <view class="stories-list">
+      <block wx:for="{{stories}}" wx:key="_id">
+        <view class="story-item" bindtap="viewStoryDetail" data-story="{{item}}">
+          
+          <view class="story-content">
+            <view class="story-title">{{item.title}}</view>
+            <view class="story-desc">{{item.content}}</view>
+            <view class="read-more">阅读全文</view>
+          </view>
+        </view>
+      </block>
+    </view>
+  </scroll-view>
+</view> 
+
+<!-- 添加AI悬浮球 -->
+<floating-ai-button position="right-bottom"></floating-ai-button> 
+
+<!-- 页面过渡加载动画 -->
+<page-transition id="page-transition"></page-transition> 

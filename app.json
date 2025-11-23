@@ -1,0 +1,59 @@
+{
+    "pages": [
+      "pages/login/login",
+      "pages/index/index",
+      "pages/cultural/cultural",
+      "pages/my/my",
+      "pages/redStories/redStories",
+      "pages/news/news",
+      "pages/activity/activity",
+      "pages/map/map",
+      "pages/culturalDetail/culturalDetail",
+      "pages/appointment/appointment",
+      "pages/feedback/feedback",
+      "pages/register/register",
+      "pages/activityDetail/activityDetail",
+      "pages/storyDetail/storyDetail",
+      "pages/newsDetail/newsDetail",
+  "pages/admin/upload/upload",
+  "pages/userInfoEdit/userInfoEdit"
+    ],
+    "window": {
+      "navigationBarTextStyle": "white",
+      "navigationStyle": "custom",
+      "backgroundColor": "#f8f3e9"
+    },
+    "tabBar": {
+      "color": "#999999",
+      "selectedColor": "#B3261E",
+      "backgroundColor": "#ffffff",
+      "borderStyle": "black",
+      "list": [
+        {
+          "pagePath": "pages/index/index",
+          "text": "首页",
+          "iconPath": "images/tabbar/home.png",
+          "selectedIconPath": "images/tabbar/home-active.png"
+        },
+        {
+          "pagePath": "pages/cultural/cultural",
+          "text": "文物",
+          "iconPath": "images/tabbar/cultural.png",
+          "selectedIconPath": "images/tabbar/cultural-active.png"
+        },
+        {
+          "pagePath": "pages/my/my",
+          "text": "我的",
+          "iconPath": "images/tabbar/my.png",
+          "selectedIconPath": "images/tabbar/my-active.png"
+        }
+      ]
+    },
+    "usingComponents": {
+      "floating-ai-button": "/components/floating-ai-button/index",
+      "page-transition": "/components/page-transition/page-transition"
+    },
+    "style": "v2",
+    "sitemapLocation": "sitemap.json",
+    "lazyCodeLoading": "requiredComponents"
+}

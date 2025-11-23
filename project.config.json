@@ -1,0 +1,36 @@
+{
+  "appid": "wxf1b46331184d56cc",
+  "compileType": "miniprogram",
+  "libVersion": "3.8.0",
+  "cloudfunctionRoot": "cloud/",
+  "packOptions": {
+    "ignore": [],
+    "include": [
+      {
+        "type": "file",
+        "value": "saaa_config.json"
+      }
+    ]
+  },
+  "setting": {
+    "coverView": true,
+    "es6": true,
+    "postcss": true,
+    "minified": true,
+    "enhance": true,
+    "showShadowRootInWxmlPanel": true,
+    "packNpmRelationList": [],
+    "babelSetting": {
+      "ignore": [],
+      "disablePlugins": [],
+      "outputPath": ""
+    }
+  },
+  "condition": {},
+  "editorSetting": {
+    "tabIndent": "insertSpaces",
+    "tabSize": 2
+  },
+  "projectArchitecture": "miniProgram",
+  "cloudfunctionTemplateRoot": "cloudfunctionTemplate/"
+}

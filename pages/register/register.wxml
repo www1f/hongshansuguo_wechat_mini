@@ -1,0 +1,75 @@
+<view class="container">
+  <navbar title="用户注册" back="{{true}}" customStyle="background-color: #B3261E;"></navbar>
+  
+  <view class="register-content">
+    <view class="logo-container">
+      <view class="logo-circle">
+        <image src="/images/login/logo.png" mode="aspectFill" class="logo-image"></image>
+      </view>
+      <view class="logo-text">红山裹裹</view>
+      <view class="logo-text-en">助力泽雅地区乡村发展</view>
+    </view>
+    
+    <view class="register-form">
+      <view class="input-group" bindtap="focusPhone">
+        <input class="input" placeholder="请输入手机号" bindinput="inputPhone" type="number" confirm-type="next" adjust-position="true" maxlength="11" cursor-spacing="30" bindfocus="focusPhone" bindblur="blurInput" focus="{{phoneFocus}}" />
+      </view>
+      
+      <view class="input-group" bindtap="focusVerifyCode">
+        <input class="input" placeholder="请输入验证码" bindinput="inputVerifyCode" style="width: 60%;" type="number" confirm-type="next" adjust-position="true" maxlength="6" cursor-spacing="30" bindfocus="focusVerifyCode" bindblur="blurInput" focus="{{verifyCodeFocus}}" />
+        <button class="code-btn {{codeSent ? 'sent' : ''}}" bindtap="sendVerifyCode" disabled="{{codeSent}}" style="width: 189rpx; display: flex; box-sizing: border-box; left: 324rpx; top: 0rpx; height: 89rpx">
+          {{codeSent ? countDown + 's' : '获取验证码'}}
+        </button>
+      </view>
+      
+      <view class="input-group">
+        <input 
+          class="input" 
+          placeholder="请设置密码" 
+          bindinput="inputPassword" 
+          type="text" 
+          password 
+          confirm-type="next" 
+          adjust-position="true" 
+          cursor-spacing="30" 
+          focus="{{passwordFocus}}" 
+          bindtap="handlePasswordTap" 
+          bindfocus="handlePasswordFocus" 
+          bindblur="handlePasswordBlur" 
+        />
+      </view>
+      
+      <view class="input-group">
+        <input 
+          class="input" 
+          placeholder="请确认密码" 
+          bindinput="inputConfirmPassword" 
+          type="text" 
+          password 
+          confirm-type="done" 
+          adjust-position="true" 
+          cursor-spacing="30" 
+          focus="{{confirmPasswordFocus}}" 
+          bindtap="handleConfirmPasswordTap" 
+          bindfocus="handleConfirmPasswordFocus" 
+          bindblur="handleConfirmPasswordBlur" 
+        />
+      </view>
+      
+      <view class="policy">
+        <view class="checkbox {{agreePolicy ? 'checked' : ''}}" bindtap="switchAgreePolicy"></view>
+        <text>我已阅读并同意</text>
+        <text class="policy-link">《用户协议》</text>
+        <text>和</text>
+        <text class="policy-link">《隐私政策》</text>
+      </view>
+      
+      <button class="register-btn {{agreePolicy ? '' : 'disabled'}}" bindtap="register" disabled="{{!agreePolicy}}">注册</button>
+      
+      <view class="login-link" bindtap="goToLogin">已有账号，立即登录</view>
+    </view>
+  </view>
+</view> 
+
+<!-- 页面过渡加载动画 -->
+<page-transition id="page-transition"></page-transition> 

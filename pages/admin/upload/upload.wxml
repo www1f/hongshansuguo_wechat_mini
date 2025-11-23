@@ -1,0 +1,39 @@
+<view class="container">
+  <view class="title">图片上传管理</view>
+  
+  <view class="upload-section">
+    <view class="section-title">文物图片</view>
+    <button class="upload-btn" bindtap="uploadCultural" disabled="{{isUploading}}">
+      上传文物图片
+    </button>
+  </view>
+
+  <view class="upload-section">
+    <view class="section-title">图标资源</view>
+    <button class="upload-btn" bindtap="uploadIcons" disabled="{{isUploading}}">
+      上传图标
+    </button>
+  </view>
+
+  <view class="upload-section">
+    <view class="section-title">用户头像</view>
+    <button class="upload-btn" bindtap="uploadAvatar" disabled="{{isUploading}}">
+      上传默认头像
+    </button>
+  </view>
+
+  <view class="results-section" wx:if="{{uploadResults.length > 0}}">
+    <view class="section-title">上传结果</view>
+    <view class="result-list">
+      <view class="result-item" wx:for="{{uploadResults}}" wx:key="originalPath">
+        <view class="result-path">{{item.originalPath}}</view>
+        <view class="result-status" wx:if="{{item.fileID}}">
+          上传成功: {{item.cloudPath}}
+        </view>
+        <view class="result-error" wx:else>
+          上传失败: {{item.error}}
+        </view>
+      </view>
+    </view>
+  </view>
+</view> 

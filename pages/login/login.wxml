@@ -1,0 +1,45 @@
+<view class="container">
+  <view class="login-content" style="width: 656rpx; height: 1414rpx; display: block; box-sizing: border-box">
+    <view class="logo-container" style="position: relative; left: 0rpx; top: 100rpx">
+      <view class="logo-circle">
+        <image class="logo-image" src="/images/login/logo.png" mode="aspectFit"></image>
+      </view>
+      <view class="logo-text">红山素裹</view>
+      <view class="logo-text-en">助力泽雅地区乡村发展</view>
+    </view>
+    
+    <view class="login-form" style="height: 493rpx; display: block; box-sizing: border-box; position: relative; left: 0rpx; top: 133rpx">
+      <view class="input-group">
+        <input style="width: 600rpx; display: block; box-sizing: border-box; height: 120rpx" class="input" placeholder="请输入手机号" bindinput="inputUsername" />
+      </view>
+      <view class="input-group">
+        <input style="height: 120rpx; display: block; box-sizing: border-box; width: 600rpx" class="input" password placeholder="请输入密码" bindinput="inputPassword" />
+      </view>
+      
+      <view class="options">
+        <view class="remember" bindtap="switchRemember">
+          <view class="checkbox {{remember ? 'checked' : ''}}"></view>
+          <text>记住密码?</text>
+        </view>
+        <view class="forget" bindtap="goToRegister">注册</view>
+      </view>
+      
+      <button class="login-btn" bindtap="login">开启乡村之旅</button>
+      
+      <view class="third-party" style="position: relative; left: 0rpx; top: 77rpx">
+        <text class="third-party-text">第三方登录</text>
+        <view class="third-party-icons">
+          <view class="icon-item" bindtap="handleWechatLogin">
+            <image class="icon-image" src="/images/login/wechat.png" mode="aspectFit"></image>
+          </view>
+          <view class="icon-item" bindtap="handleWeiboLogin">
+            <image class="icon-image" src="/images/login/weibo.png" mode="aspectFit"></image>
+          </view>
+          <view class="icon-item" bindtap="handleQQLogin">
+            <image class="icon-image" src="/images/login/QQ.png" mode="aspectFit"></image>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view> 

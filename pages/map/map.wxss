@@ -1,0 +1,35 @@
+/* pages/map/map.wxss */
+.page {
+  width: 100%;
+  min-height: 100vh;
+  background: #f5f5f5;
+}
+
+.content {
+  width: 100%;
+  padding: 20rpx;
+  box-sizing: border-box;
+  margin-top: 180rpx; /* 为导航栏留出空间 */
+}
+
+.map-container {
+  width: 100%;
+  min-height: 100vh;
+  background: #f5f5f5;
+  padding: 20rpx;
+  box-sizing: border-box;
+}
+
+.map-module {
+  width: 100%;
+  background: #fff;
+  border-radius: 20rpx;
+  padding: 20rpx;
+  box-shadow: 0 2rpx 10rpx rgba(0, 0, 0, 0.1);
+}
+
+.map-image {
+  width: 100%;
+  height: auto;
+  display: block;
+} 

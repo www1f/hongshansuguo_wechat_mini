@@ -1,0 +1,22 @@
+<navbar title="反馈提交" back="{{true}}" customStyle="background-color: #8c1c23;"></navbar>
+<view class="container" style="display: flex; box-sizing: border-box">
+  <view class="feedback-form" style="height: 937rpx; display: block; box-sizing: border-box; width: 649rpx">
+    <textarea 
+      class="feedback-input" 
+      placeholder="请输入您的反馈内容" 
+      bindinput="inputContent"
+      value="{{content}}"
+     style="height: 524rpx; display: block; box-sizing: border-box; left: 0rpx; top: 0rpx"></textarea>
+
+    <view class="image-list">
+      <block wx:for="{{images}}" wx:key="*this">
+        <image class="uploaded-image" src="{{item}}" mode="aspectFill"></image>
+      </block>
+      <view class="upload-btn" bindtap="chooseImage" wx:if="{{images.length < 9}}">
+        <text class="plus">+</text>
+      </view>
+    </view>
+
+    <button class="submit-btn" bindtap="submitFeedback" style="position: relative; left: -1rpx; top: 149rpx">提交反馈</button>
+  </view>
+</view> 

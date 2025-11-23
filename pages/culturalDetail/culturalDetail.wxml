@@ -1,0 +1,42 @@
+<navbar title="{{cultural.name}}" back="{{true}}" customStyle="background-color: #8c1c23;"></navbar>
+
+<scroll-view class="page-scroll" 
+             style="height: {{scrollViewHeight}};" 
+             scroll-y="true" 
+             enhanced="true" 
+             show-scrollbar="true" 
+             bounces="true" 
+             scroll-anchoring="true" 
+             refresher-enabled="{{false}}">
+  <view class="container" wx:if="{{cultural}}">
+    <view class="cultural-image-container">
+      <image class="cultural-image" src="{{cultural.image || '/images/culturalDetail/default-image.png'}}" mode="aspectFill" bindtap="previewImage" style="position: relative; left: 0rpx; top: 0rpx; height: 410rpx; display: inline-block; box-sizing: border-box"></image>
+      <view class="collect-btn" bindtap="toggleCollect" style="position: absolute; left: 658rpx; top: 458rpx">
+        <text class="{{isCollected ? 'collect-icon collected' : 'collect-icon'}}">♥</text>
+      </view>
+    </view>
+    
+    <view class="cultural-info">
+      <view class="cultural-name">{{cultural.name}}</view>
+      <view class="cultural-desc">{{cultural.description}}</view>
+    </view>
+    
+    <!-- <view class="cultural-detail">
+      <view class="detail-title">文物故事</view>
+      <text class="detail-content" decode="{{true}}">{{cultural.detailContent}}</text>
+    </view> -->
+    
+    <!-- 底部安全区域，确保内容不会被遮挡 -->
+    <view class="safe-area-bottom"></view>
+  </view>
+
+  <view class="loading" wx:else style="height: {{scrollViewHeight}};">
+    <text>加载中...</text>
+  </view>
+</scroll-view>
+
+<!-- 添加AI悬浮球 -->
+<floating-ai-button position="right-bottom"></floating-ai-button>
+
+<!-- 页面过渡加载动画 -->
+<page-transition id="page-transition"></page-transition>

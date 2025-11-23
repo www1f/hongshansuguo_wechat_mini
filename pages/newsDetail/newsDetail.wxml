@@ -1,0 +1,56 @@
+<navbar title="新闻详情" back="{{true}}" customStyle="background-color: #B3261E;"></navbar>
+
+<view class="container" wx:if="{{newsDetail}}">
+  <view class="news-header">
+    <view class="news-title">{{newsDetail.title}}</view>
+    <view class="news-meta">
+      <view class="meta-item">
+        <text class="label">来源：</text>
+        <text class="value">{{newsDetail.source}}</text>
+      </view>
+      <view class="meta-item">
+        <text class="label">作者：</text>
+        <text class="value">{{newsDetail.author}}</text>
+      </view>
+      <view class="meta-item">
+        <text class="label">日期：</text>
+        <text class="value">{{newsDetail.date}}</text>
+      </view>
+      <view class="meta-item">
+        <text class="view-icon">👁️</text>
+        <text class="value">{{newsDetail.views}}</text>
+      </view>
+    </view>
+  </view>
+  
+  <view class="news-image" style="background-color: {{newsDetail.bgColor}};">
+    <block wx:if="{{!imageError}}">
+      <image class="detail-image" src="{{newsDetail.image}}" mode="aspectFill" lazy-load="true" binderror="onImageError" />
+    </block>
+    <block wx:else>
+      <view class="image-placeholder">{{newsDetail.title[0]}}</view>
+    </block>
+  </view>
+  
+  <view class="news-content">
+    <rich-text nodes="{{newsDetail.content}}"></rich-text>
+  </view>
+  
+  <view class="share-section">
+    <button class="share-btn" open-type="share">
+      <text class="share-icon">🔗</text>
+      分享文章
+    </button>
+  </view>
+</view>
+
+<view class="loading" wx:else>
+  <view class="loading-icon"></view>
+  <text>加载中...</text>
+</view> 
+
+<!-- 添加AI悬浮球 -->
+<floating-ai-button position="right-bottom"></floating-ai-button> 
+
+<!-- 页面过渡加载动画 -->
+<page-transition id="page-transition"></page-transition> 

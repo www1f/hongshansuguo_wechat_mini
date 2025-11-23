@@ -1,0 +1,147 @@
+.container {
+  background-color: #f8f3e9;
+  min-height: 100vh;
+  position: relative;
+  width: 100%;
+}
+
+.cultural-scroll {
+  width: 100%;
+  height: calc(100vh - 90px);
+  padding: 20rpx;
+  box-sizing: border-box;
+}
+
+.page-title {
+  font-size: 36rpx;
+  font-weight: bold;
+  color: #c83e3e;
+  text-align: center;
+  margin: 20rpx 0 40rpx;
+}
+
+.cultural-card {
+  width: 100%;
+  background-color: #fff;
+  border-radius: 16rpx;
+  overflow: hidden;
+  box-shadow: 0 12rpx 32rpx rgba(0, 0, 0, 0.08);
+  margin: 12rpx 0 30rpx;
+  transition: transform 0.2s ease;
+}
+
+.cultural-card:active {
+  transform: scale(0.98);
+}
+
+.cultural-image {
+  width: 100%;
+  height: 360rpx;
+}
+
+.cultural-info {
+  padding: 20rpx 30rpx 30rpx;
+}
+
+.cultural-name {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #B3261E;
+  margin-bottom: 15rpx;
+}
+
+.cultural-desc {
+  font-size: 26rpx;
+  color: #666;
+  line-height: 1.5;
+  margin-bottom: 20rpx;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.cultural-more {
+  font-size: 24rpx;
+  color: #B3261E;
+  text-align: right;
+}
+
+.bottom-space {
+  height: 40rpx;
+}
+
+/* 骨架屏样式 */
+.skeleton-card {
+  width: 100%;
+  background-color: #fff;
+  border-radius: 16rpx;
+  overflow: hidden;
+  box-shadow: 0 12rpx 32rpx rgba(0, 0, 0, 0.08);
+  margin: 12rpx 0 30rpx;
+  animation: shimmer 1.5s ease-in-out infinite;
+}
+
+.skeleton-image {
+  width: 100%;
+  height: 360rpx;
+  background-color: #f0f0f0;
+}
+
+.skeleton-info {
+  padding: 20rpx 30rpx 30rpx;
+}
+
+.skeleton-title {
+  height: 32rpx;
+  background-color: #f0f0f0;
+  border-radius: 4rpx;
+  margin-bottom: 15rpx;
+}
+
+.skeleton-desc {
+  height: 26rpx;
+  background-color: #f0f0f0;
+  border-radius: 4rpx;
+  margin-bottom: 10rpx;
+}
+
+.skeleton-desc:nth-child(2) {
+  width: 80%;
+}
+
+.skeleton-desc:nth-child(3) {
+  width: 60%;
+}
+
+.skeleton-more {
+  height: 24rpx;
+  background-color: #f0f0f0;
+  border-radius: 4rpx;
+  width: 120rpx;
+  margin-left: auto;
+}
+
+@keyframes shimmer {
+  0% { opacity: 1; }
+  50% { opacity: 0.5; }
+  100% { opacity: 1; }
+}
+
+/* 空状态样式 */
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 100rpx 0;
+  color: #999;
+}
+
+.empty-icon {
+  font-size: 120rpx;
+  margin-bottom: 20rpx;
+}
+
+.empty-text {
+  font-size: 28rpx;
+} 

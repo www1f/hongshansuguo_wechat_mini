@@ -1,0 +1,59 @@
+<navbar title="文物" back="{{false}}" customStyle="background-color: #B3261E;"></navbar>
+
+<view class="container">
+  <scroll-view scroll-y="true" class="cultural-scroll">
+    
+    <!-- 骨架屏加载状态 -->
+    <block wx:if="{{loading}}">
+      <view class="skeleton-card" wx:for="{{3}}" wx:key="*this">
+        <view class="skeleton-image"></view>
+        <view class="skeleton-info">
+          <view class="skeleton-title"></view>
+          <view class="skeleton-desc"></view>
+          <view class="skeleton-more"></view>
+        </view>
+      </view>
+    </block>
+    
+    <!-- 文物列表 -->
+    <block wx:elif="{{culturalItems.length > 0}}">
+      <view 
+        class="cultural-card" 
+        wx:for="{{culturalItems}}" 
+        wx:key="_id"
+        bindtap="viewDetail" 
+        data-id="{{item._id}}"
+      >
+        <image 
+          src="{{item.image}}" 
+          class="cultural-image" 
+          mode="aspectFill"
+          lazy-load="true"
+          binderror="onImageError"
+        ></image>
+          
+        <view class="cultural-info">
+          <view class="cultural-name">{{item.name}}</view>
+          <view class="cultural-desc">{{item.description}}</view>
+          <view class="cultural-more">查看详情 ></view>
+        </view>
+      </view>
+    </block>
+    
+    <!-- 空状态 -->
+    <block wx:else>
+      <view class="empty-state">
+        <view class="empty-icon">🏛️</view>
+        <view class="empty-text">暂无文物信息</view>
+      </view>
+    </block>
+    
+    <view class="bottom-space"></view>
+  </scroll-view>
+</view> 
+
+<!-- 添加AI悬浮球 -->
+<floating-ai-button position="right-bottom"></floating-ai-button> 
+
+<!-- 页面过渡加载动画 -->
+<page-transition id="page-transition"></page-transition> 

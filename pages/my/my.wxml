@@ -1,0 +1,45 @@
+<navbar title="我的" back="{{false}}" customStyle="background-color: #8c1c23;"></navbar>
+
+<view class="container">
+  <!-- 用户信息卡片 -->
+  <view class="user-card">
+    <view class="user-info">
+      <image class="avatar" src="{{userInfo.avatarUrl || '/images/default-avatar.png'}}"></image>
+      <view class="user-texts">
+        <text class="nickname">{{userInfo.nickName || '未登录'}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 功能列表卡片 -->
+  <view class="function-card">
+    <view class="function-list">
+      <view class="function-item" bindtap="goToEditProfile">
+        <image class="icon" src="/images/icons/profile.png"></image>
+        <text class="text">编辑资料</text>
+        <image class="arrow" src="/images/icons/arrow-right.png"></image>
+      </view>
+      <view class="function-item" bindtap="goToAppointment">
+        <image class="icon" src="/images/icons/appointment.png"></image>
+        <text class="text">我的预约</text>
+        <image class="arrow" src="/images/icons/arrow-right.png"></image>
+      </view>
+      <view class="function-item" bindtap="goToFeedback">
+        <image class="icon" src="/images/icons/feedback.png"></image>
+        <text class="text">我的反馈</text>
+        <image class="arrow" src="/images/icons/arrow-right.png"></image>
+      </view>
+      <view class="function-item" bindtap="contactService">
+        <image class="icon" src="/images/icons/service.png"></image>
+        <text class="text">人工客服</text>
+        <image class="arrow" src="/images/icons/arrow-right.png"></image>
+      </view>
+    </view>
+  </view>
+</view>
+
+<!-- 添加AI悬浮球 -->
+<floating-ai-button position="right-bottom"></floating-ai-button>
+
+<!-- 页面过渡加载动画 -->
+<page-transition id="page-transition"></page-transition>

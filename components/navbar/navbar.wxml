@@ -1,0 +1,17 @@
+<view class="navbar" style="padding-top: {{statusBarHeight}}px; {{customStyle}}">
+  <view class="navbar-content">
+    <view class="left">
+      <view wx:if="{{back}}" class="back-icon" bindtap="handleBack">
+        <image src="/images/icons/back.png" style="width: 23px; height: 23px;" />
+      </view>
+    </view>
+    <view class="center">
+      <text class="title">{{title}}</text>
+    </view>
+    <view class="right">
+      <slot name="right"></slot>
+    </view>
+  </view>
+</view>
+<!-- 占位元素，与导航栏高度一致 -->
+<view style="height: {{statusBarHeight + 44}}px;"></view> 

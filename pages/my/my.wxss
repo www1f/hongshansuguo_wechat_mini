@@ -1,0 +1,61 @@
+.container {
+  width: 100%;
+  min-height: 100vh;
+  background-color: #F8F3E9;
+  padding: 20rpx;
+  box-sizing: border-box;
+}
+
+.user-card {
+  width: 100%;
+  background-color: #F8F3E9;
+  padding: 30rpx;
+  box-sizing: border-box;
+  margin-bottom: 20rpx;
+  border-radius: 16rpx;
+  box-shadow: 0 2rpx 10rpx rgba(0, 0, 0, 0.05);
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  padding: 20rpx;
+  background-color: #ffffff;
+  border-radius: 16rpx;
+  box-shadow: 0 2rpx 10rpx rgba(0, 0, 0, 0.05);
+}
+
+/* 侧滑菜单已移除：清理无效样式占位 */
+
+/* 清理掉旧侧滑相关样式，避免影响当前布局 */
+
+/* 用户头像与昵称 */
+.avatar {
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 16rpx;
+}
+.user-texts { margin-left: 24rpx; }
+.nickname { font-size: 32rpx; color: #1F2937; font-weight: 600; }
+
+/* 功能卡片与列表 */
+.function-card {
+  width: 100%;
+  background-color: #F8F3E9;
+  padding: 30rpx;
+  box-sizing: border-box;
+  border-radius: 16rpx;
+  box-shadow: 0 2rpx 10rpx rgba(0, 0, 0, 0.05);
+}
+.function-list { background: #fff; border-radius: 16rpx; overflow: hidden; }
+.function-item {
+  display: flex;
+  align-items: center;
+  padding: 24rpx 20rpx;
+  height: 96rpx;
+  border-bottom: 1rpx solid #f2f2f2;
+}
+.function-item:last-child { border-bottom: none; }
+.icon { width: 48rpx; height: 48rpx; }
+.text { flex: 1; margin-left: 16rpx; font-size: 28rpx; color: #1F2937; }
+.arrow { width: 28rpx; height: 28rpx; opacity: 0.5; }

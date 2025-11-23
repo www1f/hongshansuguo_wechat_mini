@@ -1,0 +1,28 @@
+<view class="page">
+  <navbar title="我的预约" showBack="{{true}}" backUrl="/pages/index/index"></navbar>
+  
+  <view class="content">
+    <view class="appointment-list" wx:if="{{appointments.length > 0}}">
+      <view class="appointment-item" wx:for="{{appointments}}" wx:key="id">
+        <view class="item-header">
+          <text class="title">{{item.title}}</text>
+          <text class="status {{item.status === '已预约' ? 'active' : 'expired'}}">{{item.status}}</text>
+        </view>
+        <view class="item-content">
+          <view class="info-row">
+            <text class="label">预约时间：</text>
+            <text class="value">{{item.appointmentTime}}</text>
+          </view>
+          <view class="info-row">
+            <text class="label">活动地点：</text>
+            <text class="value">{{item.location}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+    
+    <view class="empty-state" wx:else>
+      <text class="empty-text">暂无预约</text>
+    </view>
+  </view>
+</view>

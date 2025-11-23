@@ -1,0 +1,71 @@
+<!--pages/storyDetail/storyDetail.wxml-->
+<view class="container" wx:if="{{story}}">
+  <navbar title="故事详情" back="{{true}}" customStyle="background-color: #8c1c23;"></navbar>
+  
+  <scroll-view scroll-y="true" class="story-scroll" enable-flex="true" enhanced="true" show-scrollbar="false">
+    <!-- 故事头部 -->
+    <view class="story-header">
+      <image class="story-banner" src="{{story.image}}" mode="aspectFill"></image>
+      <view class="story-overlay">
+        <view class="story-title">{{story.title}}</view>
+        <!-- <view class="story-meta">
+          <text class="story-date">{{story.date}}</text>
+          <text class="story-author">{{story.author}}</text>
+        </view> -->
+      </view>
+    </view>
+    
+    <!-- 故事内容 -->
+    <view class="story-content">
+      <!-- <view class="story-stats">
+        <view class="story-views">
+          <text class="icon">👁️</text>
+          <text>{{story.views}}次阅读</text>
+        </view>
+      </view> -->
+      
+      <text class="story-text">{{story.content}}</text>
+      
+      <!-- 相关图片 -->
+      <view class="related-images" wx:if="{{story.relatedImages.length > 0}}">
+        <view class="section-title">相关图片</view>
+        <view class="image-list">
+          <image 
+            wx:for="{{story.relatedImages}}" 
+            wx:key="index"
+            src="{{item}}" 
+            mode="widthFix" 
+            class="related-image">
+          </image>
+        </view>
+      </view>
+    </view>
+    
+    <!-- 底部 -->
+    <!-- <view class="story-footer">
+      <view class="related-title">相关故事</view>
+      <view class="related-stories">
+        <view class="related-story" 
+          wx:for="{{stories}}" 
+          wx:key="id" 
+          wx:if="{{item.id !== story.id}}" 
+          data-id="{{item.id}}" 
+          bindtap="goToStory">
+          <image class="related-story-image" src="{{item.image}}" mode="aspectFill"></image>
+          <view class="related-story-title">{{item.title}}</view>
+        </view>
+      </view>
+    </view> -->
+  </scroll-view>
+  
+  <!-- 添加AI悬浮球 -->
+  <floating-ai-button position="right-bottom"></floating-ai-button>
+
+  <!-- 页面过渡加载动画 -->
+  <page-transition id="page-transition"></page-transition>
+</view>
+
+<!-- 加载提示 -->
+<view class="loading" wx:else>
+  <text>加载中...</text>
+</view> 
