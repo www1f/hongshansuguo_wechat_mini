@@ -36,9 +36,19 @@
       </view>
     </view>
   </view>
+
+  <!-- 在页面底部添加云端图片 -->
+<view class="bottom-image-container">
+  <image 
+    class="bottom-image" 
+    src="cloud://cloud1-4gs4byk3b4e9d2d2.636c-cloud1-4gs4byk3b4e9d2d2-1329424972/images/two-dimensional code/two-dimensional code.jpg" 
+    mode="widthFix"
+    bindtap="previewImage"
+    bindlongpress="saveImage"
+    data-image-src="cloud://cloud1-4gs4byk3b4e9d2d2.636c-cloud1-4gs4byk3b4e9d2d2-1329424972/images/two-dimensional code/two-dimensional code.jpg"
+  ></image>
 </view>
-
-
+</view>
 
 <!-- 页面过渡加载动画 -->
 <page-transition id="page-transition"></page-transition>
