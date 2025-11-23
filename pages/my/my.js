@@ -76,6 +76,134 @@ Page({
     }
   },
 
+  // 点击图片预览（放大）
+  previewImage(e) {
+    const imageSrc = e.currentTarget.dataset.imageSrc
+    
+    // 将 cloud ID 转换为 HTTP URL 用于预览
+    wx.cloud.getTempFileURL({
+      fileList: [imageSrc],
+      success: res => {
+        if (res.fileList && res.fileList[0]) {
+          const httpUrl = res.fileList[0].tempFileURL
+          wx.previewImage({
+            urls: [httpUrl], // 需要是 HTTP URL 数组
+            current: httpUrl // 当前显示的图片链接
+          })
+        }
+      },
+      fail: err => {
+        console.error('获取图片临时链接失败:', err)
+        wx.showToast({
+          title: '预览失败',
+          icon: 'none'
+        })
+      }
+    })
+  },
+
+  // 长按保存图片
+  saveImage(e) {
+    const imageSrc = e.currentTarget.dataset.imageSrc
+    
+    wx.showModal({
+      title: '保存图片',
+      content: '是否保存此图片到相册？',
+      success: (res) => {
+        if (res.confirm) {
+          // 用户点击确定
+          this.downloadAndSaveImage(imageSrc)
+        }
+      }
+    })
+  },
+
+  // 下载并保存图片
+  downloadAndSaveImage(imageSrc) {
+    wx.showLoading({
+      title: '保存中...',
+    })
+
+    // 先将 cloud ID 转换为 HTTP URL
+    wx.cloud.getTempFileURL({
+      fileList: [imageSrc],
+      success: res => {
+        if (res.fileList && res.fileList[0]) {
+          const httpUrl = res.fileList[0].tempFileURL
+          
+          // 下载图片到本地
+          wx.downloadFile({
+            url: httpUrl,
+            success: (downloadRes) => {
+              if (downloadRes.statusCode === 200) {
+                // 保存图片到系统相册
+                wx.saveImageToPhotosAlbum({
+                  filePath: downloadRes.tempFilePath,
+                  success: () => {
+                    wx.hideLoading()
+                    wx.showToast({
+                      title: '保存成功',
+                      icon: 'success',
+                      duration: 2000
+                    })
+                  },
+                  fail: (saveErr) => {
+                    wx.hideLoading()
+                    console.error('保存失败:', saveErr)
+                    
+                    // 处理权限问题
+                    if (saveErr.errMsg.includes('auth deny') || saveErr.errMsg.includes('authorized')) {
+                      this.showAuthGuide()
+                    } else {
+                      wx.showToast({
+                        title: '保存失败',
+                        icon: 'none'
+                      })
+                    }
+                  }
+                })
+              }
+            },
+            fail: (downloadErr) => {
+              wx.hideLoading()
+              console.error('下载失败:', downloadErr)
+              wx.showToast({
+                title: '下载失败',
+                icon: 'none'
+              })
+            }
+          })
+        }
+      },
+      fail: err => {
+        wx.hideLoading()
+        console.error('获取图片链接失败:', err)
+        wx.showToast({
+          title: '保存失败',
+          icon: 'none'
+        })
+      }
+    })
+  },
+
+  // 显示权限引导
+  showAuthGuide() {
+    wx.showModal({
+      title: '需要相册权限',
+      content: '保存图片需要您授权访问相册，请在设置中开启相册权限',
+      confirmText: '去设置',
+      success: (res) => {
+        if (res.confirm) {
+          wx.openSetting({
+            success: (settingRes) => {
+              console.log('用户设置结果:', settingRes)
+            }
+          })
+        }
+      }
+    })
+  },
+
   // 跳转到我的预约
   goToAppointment() {
     wx.navigateTo({
