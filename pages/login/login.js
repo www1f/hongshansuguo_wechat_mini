@@ -51,12 +51,15 @@ Page({
     errorHandler.showLoading('登录中...')
     
     try {
+      // 加密密码
+      const encryptedPassword = crypto.encryptPassword(password, username);
+
       // 调用云函数进行登录
       const res = await wx.cloud.callFunction({
         name: 'login',
         data: {
           phone: username,
-          password: password // 传输明文密码，由云函数进行加密比对
+          password: encryptedPassword // 传输加密后的密码
         }
       })
 

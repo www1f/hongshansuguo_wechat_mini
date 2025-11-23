@@ -29,10 +29,6 @@ function generateCode() {
   return Math.floor(100000 + Math.random() * 900000).toString();
 }
 
-
-
-const querystring = require('querystring');
-
 /**
  * 云市场短信发送 (适配阿里云云市场第三方接口)
  * 这种方式通常不需要企业资质，只需要购买云市场的短信套餐
