@@ -8,22 +8,30 @@ Page({
   
   async onLoad() {
     try {
-      // 从云数据库获取文物信息
       const db = wx.cloud.database();
       const result = await db.collection('cultural')
         .orderBy('createTime', 'desc')
         .get();
 
       if (result.data && result.data.length > 0) {
-        // 获取文物图片的临时链接
         const fileIDs = result.data.map(item => item.image);
         const tempFileURLs = await cloudImage.batchGetTempFileURL(fileIDs);
 
-        // 更新文物数据，添加图片临时链接
-        const culturalItems = result.data.map((item, index) => ({
-          ...item,
-          image: tempFileURLs[index]
-        }));
+        const culturalItems = result.data.map((item, index) => {
+          let shortDescription = '';
+          if (item.description) {
+            const plainText = item.description.replace(/<[^>]+>/g, '');
+            shortDescription = plainText.length > 60 
+              ? plainText.substring(0, 60) + '...' 
+              : plainText;
+          }
+          
+          return {
+            ...item,
+            image: tempFileURLs[index],
+            shortDescription: shortDescription
+          };
+        });
 
         this.setData({
           culturalItems,
@@ -77,10 +85,22 @@ Page({
         const fileIDs = result.data.map(item => item.image);
         const tempFileURLs = await cloudImage.batchGetTempFileURL(fileIDs);
 
-        const culturalItems = result.data.map((item, index) => ({
-          ...item,
-          image: tempFileURLs[index]
-        }));
+        // 同样需要生成简短描述
+        const culturalItems = result.data.map((item, index) => {
+          let shortDescription = '';
+          if (item.description) {
+            const plainText = item.description.replace(/<[^>]+>/g, '');
+            shortDescription = plainText.length > 60 
+              ? plainText.substring(0, 60) + '...' 
+              : plainText;
+          }
+          
+          return {
+            ...item,
+            image: tempFileURLs[index],
+            shortDescription: shortDescription
+          };
+        });
 
         this.setData({
           culturalItems
@@ -101,4 +121,4 @@ Page({
       wx.stopPullDownRefresh();
     }
   }
-}); 
+});
