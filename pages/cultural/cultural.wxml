@@ -34,7 +34,7 @@
           
         <view class="cultural-info">
           <view class="cultural-name">{{item.name}}</view>
-          <view class="cultural-desc">{{item.description}}</view>
+          <view class="cultural-desc">{{item.shortDescription}}</view>
           <view class="cultural-more">查看详情 ></view>
         </view>
       </view>
